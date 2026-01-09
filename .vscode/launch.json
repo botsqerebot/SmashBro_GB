@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "emulicious-debugger",
+            "request": "attach",
+            "name": "Attach to Emulicious",
+            "port": 58870
+        },
+        
+        {
+            "type": "emulicious-debugger",
+            "request": "launch",
+            "emuliciousPath": "/Users/sebastian/Downloads/Emulicious/Emulicious.jar",
+            "name": "Launch in Emulicious",
+            "program": "${workspaceFolder}/hello-world.gb",
+            "port": 58870,
+            "stopOnEntry": false
+        }
+    ]
+}

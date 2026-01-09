@@ -1,0 +1,15 @@
+{
+    "editor.suggest.showWords": true,
+    "editor.suggest.showSnippets": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "[asm]": {
+        "editor.suggest.showWords": true
+    },
+    "rgbdsz80.includePath": [
+        "src"
+    ]
+}
