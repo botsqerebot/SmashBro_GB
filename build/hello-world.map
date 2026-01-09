@@ -1,0 +1,53 @@
+SUMMARY:
+	ROM0: 3309 bytes used / 13075 free
+	WRAM0: 7 bytes used / 4089 free
+
+ROM0 bank #0:
+	SECTION: $0000 ($0000 bytes) ["GameCode"]
+	SECTION: $0000-$00b9 ($00ba bytes) ["Input Buttons"]
+	         $0000 = InputButton
+	         $0013 = InputButton.onenibble
+	         $0021 = InputButton.knownRet
+	         $0022 = WaitVBlank
+	         $005a = ClearOAM
+	         $0061 = ClearOAMLoop
+	         $0067 = loadSprites
+	         $0074 = LoadWorldMap
+	         $008d = LoadStartScreen
+	         $00a6 = CopyTiles
+	         $00b0 = CopyTilemap
+	SECTION: $00ba-$00dd ($0024 bytes) ["GameState"]
+	         $00ba = StartScreen_State
+	         $00c3 = GoToGame_State
+	         $00cc = Playing_State
+	         $00d5 = GoToStart_State
+	EMPTY: $00de-$00ff ($0022 bytes)
+	SECTION: $0100-$018e ($008f bytes) ["Header"]
+	         $0150 = Entrypoint
+	         $0162 = MainLoop
+	         $017d = PrintA
+	         $0189 = A_msg
+	SECTION: $018f-$068e ($0500 bytes) ["HelloWorld_Tiles"]
+	         $018f = HelloWorld_Tiles
+	         $05ef = CharacterV2
+	         $05ef = HelloWorld_TilesEnd
+	SECTION: $068f-$0a8e ($0400 bytes) ["TileData"]
+	         $068f = WorldTileMap
+	SECTION: $0a8f-$0d0e ($0280 bytes) ["HelloWorld"]
+	         $0a8f = HelloWorldmap
+	         $0ccf = First
+	         $0ccf = HelloWorldmapEnd
+	EMPTY: $0d0f-$3fff ($32f1 bytes)
+	TOTAL EMPTY: $3313 bytes
+
+WRAM0 bank #0:
+	SECTION: $c000-$c006 ($0007 bytes) ["Variables"]
+	         $c000 = VariableExample
+	         $c001 = wFramesCounter
+	         $c002 = currentInput
+	         $c003 = gameState
+	         $c004 = readyLoadSprites
+	         $c005 = playerX
+	         $c006 = playerY
+	EMPTY: $c007-$cfff ($0ff9 bytes)
+	TOTAL EMPTY: $0ff9 bytes

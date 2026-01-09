@@ -27,7 +27,7 @@ gameState: ds 1
 
 ;0 = False
 ;nz (Not zero) = true
-loadSprites: ds 1
+readyLoadSprites: ds 1
 
 
 playerX: ds 1

@@ -17,7 +17,7 @@ WaitVBlank:
     call ClearOAM
 
     ;Loads the sprite textures to memory if sprites are now viewable
-    ld a, [showSprites]
+    ld a, [readyLoadSprites]
     cp 1
     call z, loadSprites
 
