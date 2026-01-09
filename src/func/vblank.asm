@@ -14,9 +14,16 @@ WaitVBlank:
     cp 1
     call z, LoadWorldMap
 
+    call ClearOAM
+
+    ;Loads the sprite textures to memory if sprites are now viewable
+    ld a, [showSprites]
+    cp 1
+    call z, loadSprites
+
 
     ;Turn on lcd
-    ld a, LCDC_ON | LCDC_BG_ON ;|LCDC_OBJ_ON
+    ld a, LCDC_ON | LCDC_BG_ON |LCDC_OBJ_ON
     ld [rLCDC], a
 
 
@@ -31,6 +38,33 @@ WaitVBlank:
 
     ret
 
+
+
+;-------------------------------------------------------------------------------
+ClearOAM:
+    ld a, 0
+    ld b, 160
+    ld hl, _OAMRAM
+ClearOAMLoop:
+    ld [hli], a
+    dec b
+    jp nz, ClearOAMLoop
+    
+    ret
+
+;Loads the sprites to the main character
+loadSprites:
+    ld de, CharacterV2
+    ld hl, $8000
+    ld bc, 16 * 10
+    call CopyTiles
+    ret
+
+
+
+
+
+;---------------------------------------------------------------------------------
 ;Loading the main game world map (outside)
 LoadWorldMap:
     ;Copy tile data

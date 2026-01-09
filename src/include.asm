@@ -33,3 +33,5 @@ INCLUDE "tex/Tilemap/hello_world.asm"
 
 INCLUDE "tex/Tiles/First.z80"
 INCLUDE "tex/Tiles/hello_world.asm"
+
+INCLUDE "tex/Sprites/CharacterV2.z80"
