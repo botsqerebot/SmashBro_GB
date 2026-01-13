@@ -1,6 +1,7 @@
 ;Liberaries and global variables
 INCLUDE "libs/hardware.inc"
 INCLUDE "libs/variables.asm"
+INCLUDE "libs/CharacterID.asm"
 
 ;------------------------------------------------------------------------
 
@@ -21,11 +22,12 @@ SECTION "GameCode", ROM0
 INCLUDE "func/printConsole.asm"
 INCLUDE "func/input.asm"
 INCLUDE "func/vblank.asm"
+INCLUDE "func/viewSprites.asm"
 
 
 ;------------------------------------------------------------------------
+;TEXTURES
 
-;textures
 SECTION "TileData", ROM0
 
 INCLUDE "tex/Tilemap/First.z80"
@@ -35,3 +37,7 @@ INCLUDE "tex/Tiles/First.z80"
 INCLUDE "tex/Tiles/hello_world.asm"
 
 INCLUDE "tex/Sprites/CharacterV2.z80"
+
+;Wizard Character
+INCLUDE "tex/SpriteSetupdefs/Wizard.asm"
+INCLUDE "tex/Sprites/Wizard/Wizard.z80"

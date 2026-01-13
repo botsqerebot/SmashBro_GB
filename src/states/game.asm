@@ -1,4 +1,3 @@
-
 Playing_State:
     ld a, [currentInput]
     bit 3, a
@@ -6,9 +5,11 @@ Playing_State:
 
     ret
 
-GoToStart_State:
-    ld a, 0
+GoToGame_State:
+    ld a, 1
     ld [gameState], a
-
+    ld [readyLoadSprites], a
+    
     call WaitVBlank
+
     ret

@@ -14,8 +14,12 @@ Entrypoint:
     ld a, 0
     ld [gameState], a               ;Sets the game state to the start screen
 
-    ld a, 1
+    ld a, 0
     ld [readyLoadSprites], a
+
+    ;Init of the player
+    ld [playerX], a
+    ld [playerY], a
     
     call WaitVBlank
 

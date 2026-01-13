@@ -29,6 +29,26 @@ gameState: ds 1
 ;nz (Not zero) = true
 readyLoadSprites: ds 1
 
+;Says if the obj sprite should be flipped
+;0 = False
+;1 = Up
+;2 = Down
+;3 = Left
+;4 = Right
+FlipSpritesDir: ds 1
+
+;Sets the last direction that the character is facing
+;0 = False
+;1 = Up
+;2 = Down
+;3 = Left
+;4 = Right
+CurrentFlipSpritesDir: ds 1
+
 
 playerX: ds 1
 playerY: ds 1
+
+;This is the currently selected character from the player.
+;IDs are stored in the CharacterID file
+playerSelectedCharacter: ds 1

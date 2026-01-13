@@ -52,18 +52,6 @@ ClearOAMLoop:
     
     ret
 
-;Loads the sprites to the main character
-loadSprites:
-    ld de, CharacterV2
-    ld hl, $8000
-    ld bc, 16 * 10
-    call CopyTiles
-    ret
-
-
-
-
-
 ;---------------------------------------------------------------------------------
 ;Loading the main game world map (outside)
 LoadWorldMap:

@@ -1,3 +1,12 @@
+;Loads the sprites to the main character
+loadSprites:
+    ld de, Wizard
+    ld hl, $8000
+    ld bc, 16 * 4
+    call CopyTiles
+    ret
+
+
 ;Usage instruction:
 ;------------
 ;ld de, (The definition of the sprite youll use, x, y and tile id)
@@ -8,18 +17,12 @@ SetupSpriteData:
 
 LoadSpriteLoop:
     ;Y position
-    ld a, [de]
-    ld c, a
-    ld a, [CharacterYOffset]
-    add c
+    ld a, [playerY]
     inc de
     ld [hli], a
 
     ;X position
-    ld a, [de]
-    ld c, a
-    ld a, [CharacterXOffset]
-    add c
+    ld a, [playerX]
     inc de
     ld [hli], a
 
@@ -43,6 +46,7 @@ flipSprites:
     ld a, [B_OAM_YFLIP]
     ld [hli], a
     ret
+
 notFlipSprites:
     xor a
     ld [hli], a

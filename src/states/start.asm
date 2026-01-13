@@ -5,10 +5,12 @@ StartScreen_State:
 
     ret
 
-GoToGame_State:
-    ld a, 1
-    ld [gameState], a
-    
-    call WaitVBlank
 
+
+GoToStart_State:
+    ld a, 0
+    ld [gameState], a
+    ld [readyLoadSprites], a
+
+    call WaitVBlank
     ret
