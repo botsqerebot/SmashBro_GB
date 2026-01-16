@@ -9,8 +9,31 @@ ClearOAMLoop:
     
     ret
 
+MovingCharacterTypes:
+    call MovingType
+    cp FLYING
+    jp z, FlyingMovement
+    cp WALKING
+    ;jp z, WalkingMovement
+    cp HOPPING
+    jp z, HoppingMovement
 
-BasicMovement:
+    ;fallBack
+    jp FlyingMovement
+
+MovingType:
+    ld a, [playerSelectedCharacter]
+    ld hl, CharacterMovementTable
+    ld d, 0
+    ld e, a
+    add hl, de
+    ld a, [hl]
+    ret
+
+HoppingMovement:
+    ret
+
+FlyingMovement:
     ld a, [currentInput]
     bit 6, a
     call nz, MoveUp
@@ -28,7 +51,7 @@ BasicMovement:
     call nz, MoveRight
 
     ld a, [playerX]
-    call ChangePlayerOAMX
+    call ChangePlayerOAMXAdv
     
     ld a, [playerY]
     call ChangePlayerOAMY
@@ -40,7 +63,6 @@ MoveUp:
     dec a
     ld [playerY], a
 
-    ;call ChangePlayerOAMY
     ret
 
 MoveDown:
@@ -48,14 +70,15 @@ MoveDown:
     inc a
     ld [playerY], a
 
-    ;call ChangePlayerOAMY
     ret
 MoveLeft:
     ld a, [playerX]
     inc a
     ld [playerX], a
 
-    ;call ChangePlayerOAMX
+    ld a, 3
+    ld [FlipSpritesDir], a
+
     ret
 
 MoveRight:
@@ -63,17 +86,17 @@ MoveRight:
     dec a
     ld [playerX], a
 
-    ;call ChangePlayerOAMX
+    ld a, 4
+    ld [FlipSpritesDir], a
+    
     ret
 
 ChangePlayerOAMY:
-    ;ld b, a
     ld [$FE00], a ; Sprite 0 Y
     ld [$FE04], a ; Sprite 1 Y
     add 8
     ld [$FE08], a ; Sprite 2 Y
     ld [$FE0C], a ; Sprite 3 Y
-    ;ld a, b
     ret
 
 ChangePlayerOAMX:
@@ -83,3 +106,56 @@ ChangePlayerOAMX:
     ld [$FE05], a ; Sprite 1 X
     ld [$FE0D], a ; Sprite 3 X
     ret
+
+ChangePlayerOAMXAdv:
+    ld a, [FlipSpritesDir]
+    cp 4
+    jp z, MoveSpritesLeft
+
+    ld a, [FlipSpritesDir]
+    cp 3
+    jp z, MoveSpritesRight
+
+    ret
+
+MoveSpritesLeft:
+    ld a, [playerX]
+
+    ld [$FE05], a ; Sprite 1 X
+    ld [$FE0D], a ; Sprite 3 X
+    add 8
+    ld [$FE01], a ; Sprite 0 X
+    ld [$FE09], a ; Sprite 2 X
+
+    ld a, $20
+    ld [$FE03], a ; Sprite 0 X
+    ld [$FE07], a ; Sprite 1 X
+    ld [$FE0B], a ; Sprite 2 X
+    ld [$FE0F], a ; Sprite 3 X
+
+    ld a, 3
+    ld [CurrentFlipSpritesDir], a 
+
+    ret
+
+MoveSpritesRight:
+    ld a, [playerX]
+
+    ld [$FE01], a ; Sprite 0 X
+    ld [$FE09], a ; Sprite 2 X
+    add 8
+    ld [$FE05], a ; Sprite 1 X
+    ld [$FE0D], a ; Sprite 3 X
+
+    ld a, $00
+    ld [$FE03], a ; Sprite 0 X
+    ld [$FE07], a ; Sprite 1 X
+    ld [$FE0B], a ; Sprite 2 X
+    ld [$FE0F], a ; Sprite 3 X
+
+    ld a, 4
+    ld [CurrentFlipSpritesDir], a 
+
+    ret
+
+

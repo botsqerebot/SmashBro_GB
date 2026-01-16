@@ -3,7 +3,7 @@ Playing_State:
     bit 3, a
     jp nz, GoToStart_State
 
-    call BasicMovement
+    call MovingCharacterTypes
 
     ret
 

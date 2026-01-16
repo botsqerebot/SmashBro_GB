@@ -25,6 +25,7 @@ INCLUDE "func/input.asm"
 INCLUDE "func/vblank.asm"
 INCLUDE "func/viewSprites.asm"
 INCLUDE "func/movingCharacter/basicMovement.asm"
+INCLUDE "func/movingCharacter/flipCharacters.asm"
 
 ;------------------------------------------------------------------------
 ;DEFINITIONS OF THE CHARACTERS

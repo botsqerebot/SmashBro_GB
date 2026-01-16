@@ -15,7 +15,10 @@ Entrypoint:
     ld [gameState], a               ;Sets the game state to the start screen
     ld [readyLoadSprites], a
     ld [wFramesCounter], a
+
+    ld a, 4
     ld [FlipSpritesDir], a
+    ld [CurrentFlipSpritesDir], a
 
     ld a, 1                         ;Selects the wizard as the playable character
     ld [playerSelectedCharacter], a
@@ -53,7 +56,7 @@ MainLoop:
     ld a, [rLY]
     cp 144
     jp nc, .waitVBlankEnd
-    
+
     jp MainLoop 
 
 
