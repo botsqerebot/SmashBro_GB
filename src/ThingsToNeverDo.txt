@@ -1,0 +1,4 @@
+Character Sprites Location, DO not overwrite with other sprites:
+
+$8000   For the player
+$8040   For the cpu

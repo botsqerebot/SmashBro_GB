@@ -1,8 +1,18 @@
+;Always load the data under into memory before use, else game crash
 ;Loads the sprites to the main character
-loadSprites:
-    ld de, Wizard
-    ld hl, $8000
-    ld bc, 16 * 4
+;Usecase:
+; ld de, TheWantedCharacter
+; ld bc, TheNumOfTiles      Found in the SpriteDEFFile
+loadPlayerSprites:
+    ld hl, $8000        ;This is the memory location for the player. Never write over this
+    call CopyTiles
+    ret
+
+;Always load the data under into memory before use, else game crash
+; ld de, TheWantedCharacter
+; ld bc, TheNumOfTiles      Found in the SpriteDEFFile
+loadCPUSprites:
+    ld hl, $8040
     call CopyTiles
     ret
 
@@ -17,12 +27,18 @@ SetupSpriteData:
 
 LoadSpriteLoop:
     ;Y position
+    ld a, [de]
+    ld c, a
     ld a, [playerY]
+    add c
     inc de
     ld [hli], a
-
+ 
     ;X position
+    ld a, [de]
+    ld c, a
     ld a, [playerX]
+    add c
     inc de
     ld [hli], a
 

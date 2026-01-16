@@ -1,0 +1,81 @@
+SUMMARY:
+	ROM0: 4674 bytes used / 11710 free
+	WRAM0: 10 bytes used / 4086 free
+
+ROM0 bank #0:
+	SECTION: $0000 ($0000 bytes) ["GameCode"]
+	SECTION: $0000-$002c ($002d bytes) ["GameState"]
+	         $0000 = StartScreen_State
+	         $0009 = GoToStart_State
+	         $0015 = Playing_State
+	         $0021 = GoToGame_State
+	SECTION: $002d-$0041 ($0015 bytes) ["CharacterDefs"]
+	         $002d = wizardSpriteData
+	         $002d = wizardHead
+	         $0033 = wizardBottom
+	         $0039 = wizardMoves
+	         $0039 = wizardFireball
+	         $003c = wizardDefence
+	         $003f = wizardIceBlast
+	EMPTY: $0042-$00ff ($00be bytes)
+	SECTION: $0100-$01b9 ($00ba bytes) ["Header"]
+	         $0150 = Entrypoint
+	         $0173 = MainLoop
+	         $0197 = MainLoop.waitVBlankEnd
+	         $01a2 = PrintA
+	         $01ae = A_msg
+	         $01b4 = ResetCounter
+	SECTION: $01ba-$0839 ($0680 bytes) ["HelloWorld"]
+	         $01ba = HelloWorldmap
+	         $03fa = BattleArena
+	         $03fa = HelloWorldmapEnd
+	         $07fa = First
+	SECTION: $083a-$0d79 ($0540 bytes) ["HelloWorld_Tiles"]
+	         $083a = HelloWorld_Tiles
+	         $0c9a = HelloWorld_TilesEnd
+	         $0c9a = CharacterV2
+	         $0d3a = Wizard
+	SECTION: $0d7a-$1179 ($0400 bytes) ["TileData"]
+	         $0d7a = WorldTileMap
+	SECTION: $117a-$12ff ($0186 bytes) ["Input Buttons"]
+	         $117a = InputButton
+	         $118d = InputButton.onenibble
+	         $119b = InputButton.knownRet
+	         $119c = WaitVBlank
+	         $11eb = LoadWorldMap
+	         $1204 = LoadBattleArena1
+	         $121d = LoadStartScreen
+	         $1236 = CopyTiles
+	         $1240 = CopyTilemap
+	         $124a = loadPlayerSprites
+	         $1251 = loadCPUSprites
+	         $1258 = SetupSpriteData
+	         $125e = LoadSpriteLoop
+	         $1280 = flipSprites
+	         $1285 = notFlipSprites
+	         $1288 = ClearOAM
+	         $128f = ClearOAMLoop
+	         $1295 = BasicMovement
+	         $12c2 = MoveUp
+	         $12ca = MoveDown
+	         $12d2 = MoveLeft
+	         $12da = MoveRight
+	         $12e2 = ChangePlayerOAMY
+	         $12f1 = ChangePlayerOAMX
+	EMPTY: $1300-$3fff ($2d00 bytes)
+	TOTAL EMPTY: $2dbe bytes
+
+WRAM0 bank #0:
+	SECTION: $c000-$c009 ($000a bytes) ["Variables"]
+	         $c000 = VariableExample
+	         $c001 = wFramesCounter
+	         $c002 = currentInput
+	         $c003 = gameState
+	         $c004 = readyLoadSprites
+	         $c005 = FlipSpritesDir
+	         $c006 = CurrentFlipSpritesDir
+	         $c007 = playerX
+	         $c008 = playerY
+	         $c009 = playerSelectedCharacter
+	EMPTY: $c00a-$cfff ($0ff6 bytes)
+	TOTAL EMPTY: $0ff6 bytes

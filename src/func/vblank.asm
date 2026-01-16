@@ -12,16 +12,27 @@ WaitVBlank:
     cp 0
     call z, LoadStartScreen
     cp 1
-    call z, LoadWorldMap
+    call z, LoadBattleArena1
 
     call ClearOAM
 
     ;Loads the sprite textures to memory if sprites are now viewable
     ld a, [readyLoadSprites]
     cp 1
-    call z, loadSprites
+    ld de, Wizard
+    ld bc, WizardNumSprites
+    call z, loadPlayerSprites
 
+    ld de, Wizard
+    ld bc, WizardNumSprites
+    call z, loadCPUSprites
 
+    ld b, 4
+    ld de, wizardSpriteData
+    call z, SetupSpriteData
+
+    
+    
     ;Turn on lcd
     ld a, LCDC_ON | LCDC_BG_ON |LCDC_OBJ_ON
     ld [rLCDC], a
@@ -41,16 +52,6 @@ WaitVBlank:
 
 
 ;-------------------------------------------------------------------------------
-ClearOAM:
-    ld a, 0
-    ld b, 160
-    ld hl, _OAMRAM
-ClearOAMLoop:
-    ld [hli], a
-    dec b
-    jp nz, ClearOAMLoop
-    
-    ret
 
 ;---------------------------------------------------------------------------------
 ;Loading the main game world map (outside)
@@ -65,6 +66,21 @@ LoadWorldMap:
     ld de, WorldTileMap
     ld hl, $9800
     ld bc, WorldTileMapWidth * WorldTileMapHeight
+    call CopyTilemap
+
+    ret
+
+LoadBattleArena1:
+    ;Copy tile data
+    ld de, First
+    ld hl, $9000
+    ld bc, 4 * 16
+    call CopyTiles
+
+    ;Copy tile map
+    ld de, BattleArena
+    ld hl, $9800
+    ld bc, BattleArenaWidth * BattleArenaHeight
     call CopyTilemap
 
     ret

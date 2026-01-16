@@ -1,7 +1,7 @@
 # Game Boy project Makefile
 
 # Define the name of your game (without extension)
-GAME_NAME = hello-world
+GAME_NAME = SMASH
 
 # Tools
 RGBASM = rgbasm

@@ -13,11 +13,15 @@ Entrypoint:
 
     ld a, 0
     ld [gameState], a               ;Sets the game state to the start screen
-
-    ld a, 0
     ld [readyLoadSprites], a
+    ld [wFramesCounter], a
+    ld [FlipSpritesDir], a
+
+    ld a, 1                         ;Selects the wizard as the playable character
+    ld [playerSelectedCharacter], a
 
     ;Init of the player
+    ld a, 50
     ld [playerX], a
     ld [playerY], a
     
@@ -30,6 +34,13 @@ MainLoop:
     cp 144
     jp c, MainLoop
 
+    ld a, [wFramesCounter]
+    inc a
+    ld [wFramesCounter], a
+    cp 60
+    call z, ResetCounter
+
+
     call InputButton        ;Takes the input
 
     ld a, [gameState]
@@ -38,7 +49,11 @@ MainLoop:
     cp 1
     call z, Playing_State
 
-
+.waitVBlankEnd:
+    ld a, [rLY]
+    cp 144
+    jp nc, .waitVBlankEnd
+    
     jp MainLoop 
 
 
@@ -48,3 +63,8 @@ PrintA:
 
 A_msg:
     db "A=%A%", 0
+
+ResetCounter:
+    ld a, 0
+    ld [wFramesCounter], a
+    ret
