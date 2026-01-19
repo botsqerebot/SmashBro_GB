@@ -26,6 +26,8 @@ INCLUDE "func/vblank.asm"
 INCLUDE "func/viewSprites.asm"
 INCLUDE "func/movingCharacter/basicMovement.asm"
 INCLUDE "func/movingCharacter/flipCharacters.asm"
+INCLUDE "func/movingCharacter/collision.asm"
+INCLUDE "func/movingCharacter/hoppingMovement.asm"
 
 ;------------------------------------------------------------------------
 ;DEFINITIONS OF THE CHARACTERS
