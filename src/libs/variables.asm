@@ -47,8 +47,13 @@ CurrentFlipSpritesDir: ds 1
 
 
 playerX: ds 1
+playerTileX: ds 1
 playerY: ds 1
+playerTileY: ds 1
+currentTileStandingOn: ds 1
 
 ;This is the currently selected character from the player.
 ;IDs are stored in the CharacterID file
 playerSelectedCharacter: ds 1
+
+currentlyJumping: ds 1

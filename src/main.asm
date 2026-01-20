@@ -15,6 +15,10 @@ Entrypoint:
     ld [gameState], a               ;Sets the game state to the start screen
     ld [readyLoadSprites], a
     ld [wFramesCounter], a
+    ld [playerTileX], a
+    ld [playerTileY], a
+    ld [currentTileStandingOn], a
+    ld [currentlyJumping], a
 
     ld a, 4
     ld [FlipSpritesDir], a
@@ -51,6 +55,8 @@ MainLoop:
     call z, StartScreen_State
     cp 1
     call z, Playing_State
+
+    call checkCollision
 
 .waitVBlankEnd:
     ld a, [rLY]

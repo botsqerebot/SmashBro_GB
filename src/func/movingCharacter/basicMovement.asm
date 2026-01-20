@@ -66,6 +66,9 @@ MoveUp:
     ret
 
 MoveDown:
+    ld a, [currentTileStandingOn]
+    cp NoWalkTiles
+    ret z
     ld a, [playerY]
     inc a
     ld [playerY], a
