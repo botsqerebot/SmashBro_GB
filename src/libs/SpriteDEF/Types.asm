@@ -9,6 +9,6 @@ DEF HOPPING     equ 2
 
 CharacterMovementTable:
     db 0                ; ID 0 - NONE (No characters on id 0)
-    db FLYING           ; ID 1 - Wizard
+    db HOPPING           ; ID 1 - Wizard
     db WALKING          ; ID 2 - 
     db HOPPING          ; ID 3 - 

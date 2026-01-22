@@ -19,6 +19,7 @@ Entrypoint:
     ld [playerTileY], a
     ld [currentTileStandingOn], a
     ld [currentlyJumping], a
+    ld [pixelsLeftHopping], a
 
     ld a, 4
     ld [FlipSpritesDir], a

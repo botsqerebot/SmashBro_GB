@@ -28,6 +28,7 @@ INCLUDE "func/movingCharacter/basicMovement.asm"
 INCLUDE "func/movingCharacter/flipCharacters.asm"
 INCLUDE "func/movingCharacter/collision.asm"
 INCLUDE "func/movingCharacter/hoppingMovement.asm"
+INCLUDE "func/movingCharacter/flyingMovement.asm"
 
 ;------------------------------------------------------------------------
 ;DEFINITIONS OF THE CHARACTERS

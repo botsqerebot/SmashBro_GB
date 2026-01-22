@@ -31,7 +31,36 @@ MovingType:
     ret
 
 HoppingMovement:
+    ;First check if the character is currently jumping
+    ld a, [pixelsLeftHopping]
+    cp 0
+    call nz, ContinueCharacterJump
+    
+
+    ld a, [currentInput]
+    bit 6, a
+    call nz, CharacterJump
+
+    ld a, [currentInput]
+    bit 7, a
+    ;call nz, MoveDown
+
+    ld a, [currentInput]
+    bit 4, a
+    call nz, GoLeft
+
+    ld a, [currentInput]
+    bit 5, a
+    call nz, GoRight
+
+    ld a, [playerX]
+    call ChangePlayerOAMXAdv
+    
+    ld a, [playerY]
+    call ChangePlayerOAMY
+
     ret
+
 
 FlyingMovement:
     ld a, [currentInput]
@@ -58,41 +87,6 @@ FlyingMovement:
 
     ret
 
-MoveUp:
-    ld a, [playerY]
-    dec a
-    ld [playerY], a
-
-    ret
-
-MoveDown:
-    ld a, [currentTileStandingOn]
-    cp NoWalkTiles
-    ret z
-    ld a, [playerY]
-    inc a
-    ld [playerY], a
-
-    ret
-MoveLeft:
-    ld a, [playerX]
-    inc a
-    ld [playerX], a
-
-    ld a, 3
-    ld [FlipSpritesDir], a
-
-    ret
-
-MoveRight:
-    ld a, [playerX]
-    dec a
-    ld [playerX], a
-
-    ld a, 4
-    ld [FlipSpritesDir], a
-    
-    ret
 
 ChangePlayerOAMY:
     ld [$FE00], a ; Sprite 0 Y
