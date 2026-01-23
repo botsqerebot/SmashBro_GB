@@ -46,7 +46,9 @@ SECTION "TileData", ROM0
 INCLUDE "tex/Tilemap/First.z80"
 INCLUDE "tex/Tilemap/hello_world.asm"
 INCLUDE "tex/Tilemap/BattleArena1.z80"
+INCLUDE "tex/Tilemap/ChineseStadium.z80"
 
+INCLUDE "tex/Tiles/ChineseBattleStadionTiles.z80"
 INCLUDE "tex/Tiles/First.z80"
 INCLUDE "tex/Tiles/hello_world.asm"
 

@@ -26,6 +26,11 @@ lastInput: ds 1
 ;1 = Walking Screen
 gameState: ds 1
 
+;-------------------------
+;0 = Default map
+;1 = First official map
+selectedBattleMap: ds 1
+
 ;0 = False
 ;nz (Not zero) = true
 readyLoadSprites: ds 1
@@ -60,3 +65,5 @@ playerSelectedCharacter: ds 1
 currentlyJumping: ds 1
 ;The rest of how high the character should be jumping.
 pixelsLeftHopping: ds 1
+
+hoppingHeight: ds 1

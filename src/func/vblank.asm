@@ -7,12 +7,12 @@ WaitVBlank:
     ld a, 0
     ld [rLCDC], a
 
-   ;changes what to load depending on the gamestate
+    ;changes what to load depending on the gamestate
     ld a, [gameState]
     cp 0
     call z, LoadStartScreen
     cp 1
-    call z, LoadBattleArena1
+    call z, SetupChosenMap
 
     call ClearOAM
 
@@ -55,6 +55,13 @@ WaitVBlank:
 
 ;---------------------------------------------------------------------------------
 ;Loading the main game world map (outside)
+SetupChosenMap:
+    ld a, [selectedBattleMap]
+    cp 0
+    call z, LoadBattleArena1
+    cp 1
+    call z, LoadChineseStadium
+    ret
 LoadWorldMap:
     ;Copy tile data
     ld de, First
@@ -85,6 +92,20 @@ LoadBattleArena1:
 
     ret
 
+LoadChineseStadium:
+    ;Copy tile data
+    ld de, ChineseStadionTiles
+    ld hl, $9000
+    ld bc, 11 * 16
+    call CopyTiles
+
+    ;Copy tile map
+    ld de, ChineseStadium
+    ld hl, $9800
+    ld bc, ChineseStadiumWidth * ChineseStadiumHeight
+    call CopyTilemap
+
+    ret
 
 ;Loads the menu screen, also called start screen
 LoadStartScreen:

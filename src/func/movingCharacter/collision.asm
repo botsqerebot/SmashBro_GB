@@ -1,4 +1,4 @@
-DEF NoWalkTiles equ 2
+DEF NoWalkTiles equ 9
 
 checkCollision:
     call getPlayerTileX
@@ -52,6 +52,6 @@ getTileID:
 
     ld a, [hl]
     ld [currentTileStandingOn], a
-    call PrintA
+    ;call PrintA
 
     ret

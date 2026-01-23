@@ -1,9 +1,12 @@
 Playing_State:
+    call checkCollision
+    
     ld a, [currentInput]
     bit 3, a
     jp nz, GoToStart_State
 
     call MovingCharacterTypes
+
 
     ret
 
@@ -13,5 +16,7 @@ GoToGame_State:
     ld [readyLoadSprites], a
     
     call WaitVBlank
+
+    
 
     ret

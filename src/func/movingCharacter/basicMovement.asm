@@ -52,11 +52,11 @@ HoppingMovement:
 
     ld a, [currentInput]
     bit 4, a
-    call nz, GoLeft
+    call nz, GoRight
 
     ld a, [currentInput]
     bit 5, a
-    call nz, GoRight
+    call nz, GoLeft
 
     ld a, [playerX]
     call ChangePlayerOAMXAdv
@@ -65,9 +65,6 @@ HoppingMovement:
     call ChangePlayerOAMY
 
     ret
-
-CheckIfLastWasUp:
-    
 
 FlyingMovement:
     ld a, [currentInput]

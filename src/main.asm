@@ -21,6 +21,9 @@ Entrypoint:
     ld [currentlyJumping], a
     ld [pixelsLeftHopping], a
 
+    ld a, 1
+    ld [selectedBattleMap], a
+
     ld a, 4
     ld [FlipSpritesDir], a
     ld [CurrentFlipSpritesDir], a
@@ -32,6 +35,9 @@ Entrypoint:
     ld a, 50
     ld [playerX], a
     ld [playerY], a
+
+    ld a, 32
+    ld [hoppingHeight], a
     
     call WaitVBlank
 
@@ -57,7 +63,7 @@ MainLoop:
     cp 1
     call z, Playing_State
 
-    call checkCollision
+   
 
 .waitVBlankEnd:
     ld a, [rLY]
