@@ -1,6 +1,6 @@
 SUMMARY:
-	ROM0: 5093 bytes used / 11291 free
-	WRAM0: 15 bytes used / 4081 free
+	ROM0: 5136 bytes used / 11248 free
+	WRAM0: 16 bytes used / 4080 free
 
 ROM0 bank #0:
 	SECTION: $0000 ($0000 bytes) ["GameCode"]
@@ -39,67 +39,71 @@ ROM0 bank #0:
 	         $0d51 = Wizard
 	SECTION: $0d91-$1190 ($0400 bytes) ["TileData"]
 	         $0d91 = WorldTileMap
-	SECTION: $1191-$147f ($02ef bytes) ["Input Buttons"]
+	SECTION: $1191-$14aa ($031a bytes) ["Input Buttons"]
 	         $1191 = InputButton
-	         $11a4 = InputButton.onenibble
-	         $11b2 = InputButton.knownRet
-	         $11b3 = WaitVBlank
-	         $1202 = LoadWorldMap
-	         $121b = LoadBattleArena1
-	         $1234 = LoadStartScreen
-	         $124d = CopyTiles
-	         $1257 = CopyTilemap
-	         $1261 = loadPlayerSprites
-	         $1268 = loadCPUSprites
-	         $126f = SetupSpriteData
-	         $1275 = LoadSpriteLoop
-	         $1297 = flipSprites
-	         $129c = notFlipSprites
-	         $129f = ClearOAM
-	         $12a6 = ClearOAMLoop
-	         $12ac = MovingCharacterTypes
-	         $12be = MovingType
-	         $12ca = HoppingMovement
-	         $12fc = FlyingMovement
-	         $1329 = ChangePlayerOAMY
-	         $1338 = ChangePlayerOAMX
-	         $1347 = ChangePlayerOAMXAdv
-	         $1358 = MoveSpritesLeft
-	         $137d = MoveSpritesRight
-	         $13a2 = flipLeftFacing
-	         $13b4 = flipRightFacing
-	         $13c6 = checkCollision
-	         $13d0 = getPlayerTileY
-	         $13e2 = getPlayerTileX
-	         $13f4 = getTileID
-	         $1412 = GoLeft
-	         $141f = GoRight
-	         $142c = CharacterJump
-	         $1439 = ContinueCharacterJump
-	         $1448 = SetJumpHeight
-	         $1450 = MoveUp
-	         $1458 = MoveDown
-	         $1466 = MoveLeft
-	         $1473 = MoveRight
-	EMPTY: $1480-$3fff ($2b80 bytes)
-	TOTAL EMPTY: $2c1b bytes
+	         $11aa = InputButton.onenibble
+	         $11b8 = InputButton.knownRet
+	         $11b9 = WaitVBlank
+	         $1208 = LoadWorldMap
+	         $1221 = LoadBattleArena1
+	         $123a = LoadStartScreen
+	         $1253 = CopyTiles
+	         $125d = CopyTilemap
+	         $1267 = loadPlayerSprites
+	         $126e = loadCPUSprites
+	         $1275 = SetupSpriteData
+	         $127b = LoadSpriteLoop
+	         $129d = flipSprites
+	         $12a2 = notFlipSprites
+	         $12a5 = ClearOAM
+	         $12ac = ClearOAMLoop
+	         $12b2 = MovingCharacterTypes
+	         $12c4 = MovingType
+	         $12d0 = HoppingMovement
+	         $1302 = CheckIfLastWasUp
+	         $1315 = FlyingMovement
+	         $1342 = ChangePlayerOAMY
+	         $1351 = ChangePlayerOAMX
+	         $1360 = ChangePlayerOAMXAdv
+	         $1371 = MoveSpritesLeft
+	         $1396 = MoveSpritesRight
+	         $13bb = flipLeftFacing
+	         $13cd = flipRightFacing
+	         $13df = checkCollision
+	         $13e9 = getPlayerTileY
+	         $13fb = getPlayerTileX
+	         $140d = getTileID
+	         $142b = GoLeft
+	         $1438 = GoRight
+	         $1445 = CharacterJump
+	         $1452 = ContinueCharacterJump
+	         $1461 = ReadyFallingDown
+	         $146a = CheckCollisionFallingDown
+	         $1473 = FallingDown
+	         $147b = MoveUp
+	         $1483 = MoveDown
+	         $1491 = MoveLeft
+	         $149e = MoveRight
+	EMPTY: $14ab-$3fff ($2b55 bytes)
+	TOTAL EMPTY: $2bf0 bytes
 
 WRAM0 bank #0:
-	SECTION: $c000-$c00e ($000f bytes) ["Variables"]
+	SECTION: $c000-$c00f ($0010 bytes) ["Variables"]
 	         $c000 = VariableExample
 	         $c001 = wFramesCounter
 	         $c002 = currentInput
-	         $c003 = gameState
-	         $c004 = readyLoadSprites
-	         $c005 = FlipSpritesDir
-	         $c006 = CurrentFlipSpritesDir
-	         $c007 = playerX
-	         $c008 = playerTileX
-	         $c009 = playerY
-	         $c00a = playerTileY
-	         $c00b = currentTileStandingOn
-	         $c00c = playerSelectedCharacter
-	         $c00d = currentlyJumping
-	         $c00e = pixelsLeftHopping
-	EMPTY: $c00f-$cfff ($0ff1 bytes)
-	TOTAL EMPTY: $0ff1 bytes
+	         $c003 = lastInput
+	         $c004 = gameState
+	         $c005 = readyLoadSprites
+	         $c006 = FlipSpritesDir
+	         $c007 = CurrentFlipSpritesDir
+	         $c008 = playerX
+	         $c009 = playerTileX
+	         $c00a = playerY
+	         $c00b = playerTileY
+	         $c00c = currentTileStandingOn
+	         $c00d = playerSelectedCharacter
+	         $c00e = currentlyJumping
+	         $c00f = pixelsLeftHopping
+	EMPTY: $c010-$cfff ($0ff0 bytes)
+	TOTAL EMPTY: $0ff0 bytes

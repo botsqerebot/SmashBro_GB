@@ -36,10 +36,15 @@ HoppingMovement:
     cp 0
     call nz, ContinueCharacterJump
     
-
+    ;Checks if last input also was up
     ld a, [currentInput]
-    bit 6, a
+    and %01000000
+    ld b, a
+    ld a, [lastInput]
+    and %01000000
+    cp b
     call nz, CharacterJump
+    call z, ReadyFallingDown
 
     ld a, [currentInput]
     bit 7, a
@@ -61,6 +66,8 @@ HoppingMovement:
 
     ret
 
+CheckIfLastWasUp:
+    
 
 FlyingMovement:
     ld a, [currentInput]

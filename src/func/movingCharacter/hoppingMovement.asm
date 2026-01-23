@@ -20,7 +20,7 @@ GoRight:
 
 CharacterJump:
     ;Set jump height to 70 pixels
-    ld a, 70
+    ld a, 30
     ld [pixelsLeftHopping], a
 
     ld a, [playerY]
@@ -41,10 +41,20 @@ ContinueCharacterJump:
 
     ret
 
+ReadyFallingDown:
+    ld a, [pixelsLeftHopping]
+    cp 0
+    call z, CheckCollisionFallingDown
+    ret
 
+CheckCollisionFallingDown:
+    ld a, [currentTileStandingOn]
+    cp NoWalkTiles
+    call nz, FallingDown
+    ret
 
-
-SetJumpHeight:
-    ld a, 10
-    ld [pixelsLeftHopping], a 
-    ld [currentlyJumping], a
+FallingDown:
+    ld a, [playerY]
+    inc a
+    ld [playerY], a
+    ret

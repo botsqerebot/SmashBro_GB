@@ -19,6 +19,7 @@ wFramesCounter: ds 1
 ;   Bit 6   Up      Mask $40
 ;   Bit 7   Down    Mask $80
 currentInput: ds 1
+lastInput: ds 1
 
 ;--------------------------
 ;0 = Start Screen
