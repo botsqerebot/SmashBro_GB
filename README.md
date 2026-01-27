@@ -28,3 +28,12 @@ For more ad advanced people the gameboy emulator; [Emulicious](https://emuliciou
 
 * DPAD DOWN     +   BUTTON B    -   Defence
 * DPAD DOWN     +   BUTTON A    -   Finishing Move
+
+# FaQ
+
+### Is it free
+* Yes, it's free and open source for everyone.
+
+### What's the technology behind
+* Its 100% assembly for gameboy. 
+

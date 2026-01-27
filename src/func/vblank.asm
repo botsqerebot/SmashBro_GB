@@ -16,21 +16,11 @@ WaitVBlank:
 
     call ClearOAM
 
-    ;Loads the sprite textures to memory if sprites are now viewable
-    ld a, [readyLoadSprites]
+    ld a, [gameState]
+    cp 0
+    call z, WaitVBlank.loadStartStateSprites
     cp 1
-    ld de, Wizard
-    ld bc, WizardNumSprites
-    call z, loadPlayerSprites
-
-    ld de, Wizard
-    ld bc, WizardNumSprites
-    call z, loadCPUSprites
-
-    ld b, 4
-    ld de, wizardSpriteData
-    call z, SetupSpriteData
-
+    call z,  WaitVBlank.loadGameStateSprites
     
     
     ;Turn on lcd
@@ -53,6 +43,43 @@ WaitVBlank:
 
 ;-------------------------------------------------------------------------------
 
+.loadStartStateSprites:
+    ld de, SelectArrow
+    ld bc, 1 * 16
+    ld hl, $8000
+    call CopyTiles
+    ret
+
+    ld b, 1
+    ld de, selectArrowData
+    call z, SetupSpriteData
+
+    ret
+
+
+
+.loadGameStateSprites:
+    ;Loads the sprite textures to memory if sprites are now viewable
+    ld a, [readyLoadSprites]
+    cp 1
+    ld de, Wizard
+    ld bc, WizardNumSprites
+    call z, loadPlayerSprites
+
+    ld de, Wizard
+    ld bc, WizardNumSprites
+    call z, loadCPUSprites
+
+    ld b, 4
+    ld de, wizardSpriteData
+    call z, SetupSpriteData
+
+    ret
+
+
+selectArrowData:
+    ; Y, X, Tile ID
+    db 100, 100, 0            ; Left top
 ;---------------------------------------------------------------------------------
 ;Loading the main game world map (outside)
 SetupChosenMap:
@@ -110,15 +137,15 @@ LoadChineseStadium:
 ;Loads the menu screen, also called start screen
 LoadStartScreen:
     ;Copy tile data
-    ld de, HelloWorld_Tiles
+    ld de, Letters
     ld hl, $9000
-    ld bc, HelloWorld_TilesEnd - HelloWorld_Tiles
+    ld bc, 26 * 16
     call CopyTiles
 
     ;Copy tile map
-    ld de, HelloWorldmap
+    ld de, StartScreenMap
     ld hl, $9800
-    ld bc, HelloWorldmapEnd - HelloWorldmap
+    ld bc, StartScreenWidth * StartScreenHeight
     call CopyTilemap
 
     ret

@@ -67,3 +67,13 @@ currentlyJumping: ds 1
 pixelsLeftHopping: ds 1
 
 hoppingHeight: ds 1
+
+currentPositionStartArrowX: ds 1
+currentPositionStartArrowY: ds 1
+startScreenState: ds 1
+
+;0 = Top
+;n = longer down
+;-------
+;Reset to 0 when changing scene
+startScreenMenuSelection: ds 1

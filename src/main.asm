@@ -20,10 +20,13 @@ Entrypoint:
     ld [currentTileStandingOn], a
     ld [currentlyJumping], a
     ld [pixelsLeftHopping], a
+    ld [startScreenMenuSelection], a
+
+    ld [currentPositionStartArrowX], a
+    ld [currentPositionStartArrowY], a
 
     ld a, 1
     ld [selectedBattleMap], a
-
     ld a, 4
     ld [FlipSpritesDir], a
     ld [CurrentFlipSpritesDir], a
