@@ -1,5 +1,5 @@
 SUMMARY:
-	ROM0: 8773 bytes used / 7611 free
+	ROM0: 8789 bytes used / 7595 free
 	WRAM0: 22 bytes used / 4074 free
 
 ROM0 bank #0:
@@ -38,7 +38,7 @@ ROM0 bank #0:
 	         $01c9 = PrintA
 	         $01d5 = A_msg
 	         $01db = ResetCounter
-	SECTION: $01e1-$1570 ($1390 bytes) ["HelloWorld"]
+	SECTION: $01e1-$1580 ($13a0 bytes) ["HelloWorld"]
 	         $01e1 = HelloWorldmap
 	         $0421 = BattleArena
 	         $0421 = HelloWorldmapEnd
@@ -48,70 +48,70 @@ ROM0 bank #0:
 	         $10a1 = MapSelectScreen
 	         $12e1 = ChineseStadionTiles
 	         $1391 = Letters
-	         $1531 = First
-	SECTION: $1571-$1ad0 ($0560 bytes) ["HelloWorld_Tiles"]
-	         $1571 = HelloWorld_Tiles
-	         $19d1 = SelectArrow
-	         $19d1 = HelloWorld_TilesEnd
-	         $19f1 = CharacterV2
-	         $1a91 = Wizard
-	SECTION: $1ad1-$1ed0 ($0400 bytes) ["TileData"]
-	         $1ad1 = WorldTileMap
-	SECTION: $1ed1-$2251 ($0381 bytes) ["Input Buttons"]
-	         $1ed1 = InputButton
-	         $1eea = InputButton.onenibble
-	         $1ef8 = InputButton.knownRet
-	         $1ef9 = WaitVBlank
-	         $1f36 = WaitVBlank.loadStartStateSprites
-	         $1f4c = WaitVBlank.loadGameStateSprites
-	         $1f6c = selectArrowData
-	         $1f6f = SetupChosenMap
-	         $1f7d = LoadWorldMap
-	         $1f96 = LoadBattleArena1
-	         $1faf = LoadChineseStadium
-	         $1fc8 = LoadStartScreen
-	         $1fe1 = CopyTiles
-	         $1feb = CopyTilemap
-	         $1ff5 = loadPlayerSprites
-	         $1ffc = loadCPUSprites
-	         $2003 = SetupSpriteData
-	         $2009 = LoadSpriteLoop
-	         $202b = flipSprites
-	         $2030 = notFlipSprites
-	         $2033 = ClearOAM
-	         $203a = ClearOAMLoop
-	         $2040 = MovingCharacterTypes
-	         $2052 = MovingType
-	         $205e = HoppingMovement
-	         $209a = FlyingMovement
-	         $20c7 = ChangePlayerOAMY
-	         $20d6 = ChangePlayerOAMX
-	         $20e5 = ChangePlayerOAMXAdv
-	         $20f6 = MoveSpritesLeft
-	         $211b = MoveSpritesRight
-	         $2140 = flipLeftFacing
-	         $2152 = flipRightFacing
-	         $2164 = checkCollision
-	         $216e = getPlayerTileY
-	         $2180 = getPlayerTileX
-	         $2192 = getTileID
-	         $21ad = GoLeft
-	         $21bc = GoLeft.MovePlayerLeft
-	         $21c4 = GoLeft.MoveBackgroundLeft
-	         $21cc = GoRight
-	         $21db = GoRight.MovePlayerLeft
-	         $21e3 = GoRight.MoveBackgroundLeft
-	         $21eb = CharacterJump
-	         $21f9 = ContinueCharacterJump
-	         $2208 = ReadyFallingDown
-	         $2211 = CheckCollisionFallingDown
-	         $221a = FallingDown
-	         $2222 = MoveUp
-	         $222a = MoveDown
-	         $2238 = MoveLeft
-	         $2245 = MoveRight
-	EMPTY: $2252-$3fff ($1dae bytes)
-	TOTAL EMPTY: $1dbb bytes
+	         $1541 = First
+	SECTION: $1581-$1ae0 ($0560 bytes) ["HelloWorld_Tiles"]
+	         $1581 = HelloWorld_Tiles
+	         $19e1 = SelectArrow
+	         $19e1 = HelloWorld_TilesEnd
+	         $1a01 = CharacterV2
+	         $1aa1 = Wizard
+	SECTION: $1ae1-$1ee0 ($0400 bytes) ["TileData"]
+	         $1ae1 = WorldTileMap
+	SECTION: $1ee1-$2261 ($0381 bytes) ["Input Buttons"]
+	         $1ee1 = InputButton
+	         $1efa = InputButton.onenibble
+	         $1f08 = InputButton.knownRet
+	         $1f09 = WaitVBlank
+	         $1f46 = WaitVBlank.loadStartStateSprites
+	         $1f5c = WaitVBlank.loadGameStateSprites
+	         $1f7c = selectArrowData
+	         $1f7f = SetupChosenMap
+	         $1f8d = LoadWorldMap
+	         $1fa6 = LoadBattleArena1
+	         $1fbf = LoadChineseStadium
+	         $1fd8 = LoadStartScreen
+	         $1ff1 = CopyTiles
+	         $1ffb = CopyTilemap
+	         $2005 = loadPlayerSprites
+	         $200c = loadCPUSprites
+	         $2013 = SetupSpriteData
+	         $2019 = LoadSpriteLoop
+	         $203b = flipSprites
+	         $2040 = notFlipSprites
+	         $2043 = ClearOAM
+	         $204a = ClearOAMLoop
+	         $2050 = MovingCharacterTypes
+	         $2062 = MovingType
+	         $206e = HoppingMovement
+	         $20aa = FlyingMovement
+	         $20d7 = ChangePlayerOAMY
+	         $20e6 = ChangePlayerOAMX
+	         $20f5 = ChangePlayerOAMXAdv
+	         $2106 = MoveSpritesLeft
+	         $212b = MoveSpritesRight
+	         $2150 = flipLeftFacing
+	         $2162 = flipRightFacing
+	         $2174 = checkCollision
+	         $217e = getPlayerTileY
+	         $2190 = getPlayerTileX
+	         $21a2 = getTileID
+	         $21bd = GoLeft
+	         $21cc = GoLeft.MovePlayerLeft
+	         $21d4 = GoLeft.MoveBackgroundLeft
+	         $21dc = GoRight
+	         $21eb = GoRight.MovePlayerLeft
+	         $21f3 = GoRight.MoveBackgroundLeft
+	         $21fb = CharacterJump
+	         $2209 = ContinueCharacterJump
+	         $2218 = ReadyFallingDown
+	         $2221 = CheckCollisionFallingDown
+	         $222a = FallingDown
+	         $2232 = MoveUp
+	         $223a = MoveDown
+	         $2248 = MoveLeft
+	         $2255 = MoveRight
+	EMPTY: $2262-$3fff ($1d9e bytes)
+	TOTAL EMPTY: $1dab bytes
 
 WRAM0 bank #0:
 	SECTION: $c000-$c015 ($0016 bytes) ["Variables"]
