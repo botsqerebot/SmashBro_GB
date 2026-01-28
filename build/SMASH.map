@@ -1,35 +1,36 @@
 SUMMARY:
-	ROM0: 8770 bytes used / 7614 free
+	ROM0: 8773 bytes used / 7611 free
 	WRAM0: 22 bytes used / 4074 free
 
 ROM0 bank #0:
 	SECTION: $0000 ($0000 bytes) ["GameCode"]
-	SECTION: $0000-$00b7 ($00b8 bytes) ["GameState"]
+	SECTION: $0000-$00ba ($00bb bytes) ["GameState"]
 	         $0000 = StartScreen_State
 	         $0012 = StartScreen_State.viewStartScreen
-	         $0026 = StartScreen_State.viewCharacterSelectScreen
-	         $0027 = StartScreen_State.viewMapSelectScreen
-	         $0028 = StartScreen_State.incStartScreenSelection
-	         $0043 = StartScreen_State.decStartScreenSelection
-	         $005e = StartScreen_State.changeArrowLocation
-	         $006d = StartScreen_State.LoadArrowLoop
-	         $0077 = StartScreen_State.startScreenArrowLocations
-	         $007d = StartScreen_State.setSelection
-	         $0080 = StartScreen_State.setSelectionLoop
-	         $0088 = GoToStart_State
-	         $009d = Playing_State
-	         $00ac = GoToGame_State
-	SECTION: $00b8-$00ef ($0038 bytes) ["CharacterDefs"]
-	         $00b8 = CharacterMovementTable
-	         $00bc = wizardSpriteData
-	         $00bc = wizardHead
-	         $00c2 = wizardBottom
-	         $00c8 = wizardAbilities
-	         $00ca = wizardMoves
-	         $00ca = wizardFireball
-	         $00d7 = wizardDefence
-	         $00e2 = wizardIceBlast
-	EMPTY: $00f0-$00ff ($0010 bytes)
+	         $002e = StartScreen_State.startGameCheck
+	         $0037 = StartScreen_State.viewCharacterSelectScreen
+	         $0038 = StartScreen_State.viewMapSelectScreen
+	         $0039 = StartScreen_State.incStartScreenSelection
+	         $004d = StartScreen_State.decStartScreenSelection
+	         $0061 = StartScreen_State.changeArrowLocation
+	         $0070 = StartScreen_State.LoadArrowLoop
+	         $007a = StartScreen_State.startScreenArrowLocations
+	         $0080 = StartScreen_State.setSelection
+	         $0083 = StartScreen_State.setSelectionLoop
+	         $008b = GoToStart_State
+	         $00a0 = Playing_State
+	         $00af = GoToGame_State
+	SECTION: $00bb-$00f2 ($0038 bytes) ["CharacterDefs"]
+	         $00bb = CharacterMovementTable
+	         $00bf = wizardSpriteData
+	         $00bf = wizardHead
+	         $00c5 = wizardBottom
+	         $00cb = wizardAbilities
+	         $00cd = wizardMoves
+	         $00cd = wizardFireball
+	         $00da = wizardDefence
+	         $00e5 = wizardIceBlast
+	EMPTY: $00f3-$00ff ($000d bytes)
 	SECTION: $0100-$01e0 ($00e1 bytes) ["Header"]
 	         $0150 = Entrypoint
 	         $019a = MainLoop
@@ -110,7 +111,7 @@ ROM0 bank #0:
 	         $2238 = MoveLeft
 	         $2245 = MoveRight
 	EMPTY: $2252-$3fff ($1dae bytes)
-	TOTAL EMPTY: $1dbe bytes
+	TOTAL EMPTY: $1dbb bytes
 
 WRAM0 bank #0:
 	SECTION: $c000-$c015 ($0016 bytes) ["Variables"]

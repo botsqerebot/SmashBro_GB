@@ -14,16 +14,27 @@ StartScreen_State:
 
 .viewStartScreen:
     ld a, [currentInput]
-    bit 6, a
+    bit 7, a
     call z, StartScreen_State.incStartScreenSelection
 
     ld a, [currentInput]
-    bit 7, a
+    bit 6, a
     call z, StartScreen_State.decStartScreenSelection
+
+    ld a, [startScreenMenuSelection]
+    cp 2
+    call z, StartScreen_State.startGameCheck
+
 
     
     call StartScreen_State.changeArrowLocation
     
+    ret
+
+.startGameCheck:
+    ld a, [currentInput]
+    bit 0, a
+    jp nz, GoToGame_State
     ret
 
 .viewCharacterSelectScreen:
@@ -37,12 +48,8 @@ StartScreen_State:
     cp 2
     ret z
 
-    ld a, [currentInput]
-    and %10000000
-    ld b, a
     ld a, [lastInput]
-    and %10000000
-    cp b
+    bit 7, a
     ret z
     
 
@@ -56,12 +63,8 @@ StartScreen_State:
     cp 0
     ret z
 
-    ld a, [currentInput]
-    and %01000000
-    ld b, a
     ld a, [lastInput]
-    and %01000000
-    cp b
+    bit 6, a
     ret z
 
     ld a, [startScreenMenuSelection]
