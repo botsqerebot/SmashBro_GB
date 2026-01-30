@@ -28,18 +28,18 @@ GoRight:
 
     ld a, [playerX]
     cp 140
-    jr z, GoRight.MoveBackgroundLeft
-    jr nz, GoRight.MovePlayerLeft
+    jr z, GoRight.MoveBackgroundRight
+    jr nz, GoRight.MovePlayerRight
     
     ret
 
-.MovePlayerLeft:
+.MovePlayerRight:
     ld a, [playerX]
     inc a
     ld [playerX], a
     ret
 
-.MoveBackgroundLeft:
+.MoveBackgroundRight:
     ld a, [rSCX]
     inc a
     ld [rSCX], a

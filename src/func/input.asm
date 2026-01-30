@@ -15,8 +15,7 @@ section "Input Buttons", ROM0
 
 ;ldh accesess the higher places in ram with hardware variables, $FF00 - $FFFF
 InputButton:
-    ld a,[currentInput]
-    ld [lastInput], a
+    
     ;Read d-pad
     ld a, JOYP_GET_CTRL_PAD     ;Loads the number that we send to the joypad register to ask for dpad
     call .onenibble

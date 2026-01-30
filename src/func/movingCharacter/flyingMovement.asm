@@ -25,11 +25,23 @@ MoveLeft:
     ret
 
 MoveRight:
-    ld a, [playerX]
-    dec a
-    ld [playerX], a
-
     ld a, 4
     ld [FlipSpritesDir], a
-    
+
+    ld a, [playerX]
+    cp 140
+    jr z, GoRight.MoveBackgroundRight
+    jr nz, GoRight.MovePlayerRight
+
     ret
+
+.MoveBackgroundRight:
+    ld a, [rSCX]
+    inc a
+    ld [rSCX], a
+
+    ret
+
+.MovePlayerRight:
+    ld a, [playerX]
+    inc a 

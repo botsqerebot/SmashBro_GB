@@ -15,15 +15,19 @@ StartScreen_State:
 .viewStartScreen:
     ld a, [currentInput]
     bit 7, a
-    call z, StartScreen_State.incStartScreenSelection
+    call nz, StartScreen_State.incStartScreenSelection
 
     ld a, [currentInput]
     bit 6, a
-    call z, StartScreen_State.decStartScreenSelection
+    call nz, StartScreen_State.decStartScreenSelection
 
-    ld a, [startScreenMenuSelection]
-    cp 2
-    call z, StartScreen_State.startGameCheck
+    ld a, [currentInput]
+    bit 0, a
+    call nz, StartScreen_State.passToCorrectState
+
+    ;ld a, [startScreenMenuSelection]
+    ;cp 2
+    ;call z, StartScreen_State.startGameCheck
 
 
     
@@ -31,17 +35,65 @@ StartScreen_State:
     
     ret
 
-.startGameCheck:
+.viewCharacterSelectScreen:
+    ld a, [currentInput]
+    bit 7, a
+    call nz, StartScreen_State.incStartScreenSelection
+
+    ld a, [currentInput]
+    bit 6, a
+    call nz, StartScreen_State.decStartScreenSelection
+
     ld a, [currentInput]
     bit 0, a
-    jp nz, GoToGame_State
+    call nz, StartScreen_State.characterSelectionSet
+
+    ld a, [currentInput]
+    bit 1, a
+    call nz, GoToGame_State
+
+    call StartScreen_State.changeArrowLocation
+
     ret
 
-.viewCharacterSelectScreen:
+.characterSelectionSet:
+    ld a, [startScreenMenuSelection]
+    ld b, a
+    cp 0
+    call z, StartScreen_State.setCharacter0
+    ld a, b
+    cp 1
+    call z, StartScreen_State.setCharacter1
+
+    ret
+
+.setCharacter0:
+    ld a, WizardID
+    ld [playerSelectedCharacter], a 
+    ret
+
+.setCharacter1:
+    ld a, WarriorID
+    ld [playerSelectedCharacter], a 
     ret
 
 .viewMapSelectScreen:
     ret
+
+.passToCorrectState:
+    ld a, [startScreenMenuSelection]
+    ld b, a
+    cp 0
+    jp z, GoToSelectCharacter_State
+    ld a, b
+    cp 1
+    jp z, GoToSelectMap_State
+    ld a, b
+    cp 2
+    jp z, GoToGame_State
+    ret
+
+
 
 .incStartScreenSelection:
     ld a, [startScreenMenuSelection]
@@ -50,8 +102,7 @@ StartScreen_State:
 
     ld a, [lastInput]
     bit 7, a
-    ret z
-    
+    ret nz
 
     ld a, [startScreenMenuSelection]
     inc a
@@ -65,7 +116,7 @@ StartScreen_State:
 
     ld a, [lastInput]
     bit 6, a
-    ret z
+    ret nz
 
     ld a, [startScreenMenuSelection]
     dec a
@@ -73,13 +124,29 @@ StartScreen_State:
     ret
     
 
-.changeArrowLocation
-    ld de, StartScreen_State.startScreenArrowLocations
-    call StartScreen_State.setSelection
+.changeArrowLocation:
+    ld a, [startScreenState]
+    ld b, a
+    cp 0
+    call z, StartScreen_State.setStartScreenLocation
+    ld a, b
+    cp 1
+    call z, StartScreen_State.setCharacterSelectLocation
+    
     
     ld b, 1
     ld hl, _OAMRAM
     jp StartScreen_State.LoadArrowLoop
+    ret
+
+.setStartScreenLocation:
+    ld de, StartScreen_State.startScreenArrowLocations
+    call StartScreen_State.setSelection
+    ret
+
+.setCharacterSelectLocation:
+    ld de, StartScreen_State.characterSelectArrowLocations
+    call StartScreen_State.setSelection
     ret
 
 .LoadArrowLoop:
@@ -102,6 +169,11 @@ StartScreen_State:
     db 11 * 8, 6 * 8
     db 16 * 8, 6 * 8
 
+.characterSelectArrowLocations:
+    db 6 * 8, 8 * 8
+    db 8 * 8, 8 * 8
+    db 16 * 8, 2 * 8
+
 .setSelection
     ld a, [startScreenMenuSelection]
 .setSelectionLoop
@@ -116,6 +188,8 @@ StartScreen_State:
     jr StartScreen_State.setSelectionLoop
     
 
+
+
 GoToStart_State:
     ld a, 0
     ld [gameState], a
@@ -124,5 +198,31 @@ GoToStart_State:
     ld [rSCY], a
     ld [rSCX], a
 
+    call WaitVBlank
+    ret
+
+GoToSelectCharacter_State:
+    ld a, 0
+    ld [gameState], a
+    ld [readyLoadSprites], a
+    ld [rSCY], a
+    ld [rSCX], a
+
+    ld a, 1
+    ld [startScreenState], a
+
+    call WaitVBlank
+    ret
+
+GoToSelectMap_State:
+    ld a, 0
+    ld [gameState], a
+    ld [readyLoadSprites], a
+    ld [rSCY], a
+    ld [rSCX], a
+
+    ld a, 2
+    ld [startScreenState], a
+    
     call WaitVBlank
     ret

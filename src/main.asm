@@ -15,13 +15,17 @@ Entrypoint:
     ld [gameState], a               ;Sets the game state to the start screen
     ld [readyLoadSprites], a
     ld [wFramesCounter], a
+
+    ;Gameplay vars
     ld [playerTileX], a
     ld [playerTileY], a
     ld [currentTileStandingOn], a
     ld [currentlyJumping], a
     ld [pixelsLeftHopping], a
-    ld [startScreenMenuSelection], a
 
+    ;Startscreen vars
+    ld [startScreenMenuSelection], a
+    ld [startScreenState], a
     ld [currentPositionStartArrowX], a
     ld [currentPositionStartArrowY], a
 
@@ -57,6 +61,8 @@ MainLoop:
     cp 60
     call z, ResetCounter
 
+    ld a,[currentInput]
+    ld [lastInput], a
 
     call InputButton        ;Takes the input
 

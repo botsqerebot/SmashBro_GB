@@ -77,11 +77,11 @@ FlyingMovement:
 
     ld a, [currentInput]
     bit 4, a
-    call nz, MoveLeft
+    call nz, GoRight
 
     ld a, [currentInput]
     bit 5, a
-    call nz, MoveRight
+    call nz, GoLeft
 
     ld a, [playerX]
     call ChangePlayerOAMXAdv

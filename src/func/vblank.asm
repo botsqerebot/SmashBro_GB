@@ -10,7 +10,7 @@ WaitVBlank:
     ;changes what to load depending on the gamestate
     ld a, [gameState]
     cp 0
-    call z, LoadStartScreen
+    call z, SetupChosenStartScreen
     cp 1
     call z, SetupChosenMap
 
@@ -134,6 +134,14 @@ LoadChineseStadium:
 
     ret
 
+SetupChosenStartScreen:
+    ld a, [startScreenState]
+    cp 0
+    jp z, LoadStartScreen
+    cp 1
+    jp z, LoadCharacterSelectScreen
+    ret
+
 ;Loads the menu screen, also called start screen
 LoadStartScreen:
     ;Copy tile data
@@ -146,6 +154,21 @@ LoadStartScreen:
     ld de, StartScreenMap
     ld hl, $9800
     ld bc, StartScreenWidth * StartScreenHeight
+    call CopyTilemap
+
+    ret
+
+LoadCharacterSelectScreen:
+    ;Copy tile data
+    ld de, Letters
+    ld hl, $9000
+    ld bc, 26 * 16
+    call CopyTiles
+
+    ;Copy tile map
+    ld de, CharacterSelectScreen
+    ld hl, $9800
+    ld bc, CharacterSelectScreenWidth * CharacterSelectScreenHeight
     call CopyTilemap
 
     ret
