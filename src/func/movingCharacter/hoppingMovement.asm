@@ -52,19 +52,23 @@ StartJump:
     ret nc       ; Return if in air (currentTileStandingOn < NoWalkTiles)
 
     debug_message "Jumping"
-    ld a, -10
+    ld a, -25
     ld [playerVY], a
+    xor a
+    ld [playerVYsub], a
     ret
 
 UpdateVerticalMovement:
     ld a, [playerVY]
 
+    ;See if moving up, negative number
     cp 128
     jr nc, .movingUp
 
-    cp 4
+    ;If moving down and exceding 4px per frame, go back to 4px (16sub pixels = 4 pixels)
+    cp 16
     jr c, .applyGravity
-    ld a, 4
+    ld a, 16
     ld [playerVY], a
     jr .applyPosition
 
@@ -78,9 +82,36 @@ UpdateVerticalMovement:
     ld a, [playerVY]
     inc a
     ld [playerVY], a
+
 .applyPosition:
-    ld a, [playerVY]
+    ld a, [playerVYsub]
     ld b, a
+    ld a, [playerVY]
+    add a, b
+    ld [playerVYsub], a
+
+    ;See if negative
+    bit 7, a
+    jr z, .positive
+
+    ;Divide by 4 (shift right 2 bits)
+    or $C0
+    sra a
+    sra a
+    jr .applyMovement
+
+
+.positive:
+    srl a
+    srl a
+
+.applyMovement:
+    ld b, a
+
+    ld a, [playerVYsub]
+    and $03
+    ld [playerVYsub], a
+
 
     ld a, [playerY]
     add a, b

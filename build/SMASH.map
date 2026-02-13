@@ -1,6 +1,6 @@
 SUMMARY:
-	ROM0: 9043 bytes used / 7341 free
-	WRAM0: 26 bytes used / 4070 free
+	ROM0: 9079 bytes used / 7305 free
+	WRAM0: 27 bytes used / 4069 free
 
 ROM0 bank #0:
 	SECTION: $0000 ($0000 bytes) ["GameCode"]
@@ -41,7 +41,7 @@ ROM0 bank #0:
 	         $1aba = Wizard
 	SECTION: $1afa-$1ef9 ($0400 bytes) ["TileData"]
 	         $1afa = WorldTileMap
-	SECTION: $1efa-$22c8 ($03cf bytes) ["Input Buttons"]
+	SECTION: $1efa-$22ec ($03f3 bytes) ["Input Buttons"]
 	         $1efa = InputButton
 	         $1f0d = InputButton.onenibble
 	         $1f1b = InputButton.knownRet
@@ -88,45 +88,47 @@ ROM0 bank #0:
 	         $2218 = GoRight.MovePlayerRight
 	         $2220 = GoRight.MoveBackgroundRight
 	         $2228 = StartJump
-	         $2242 = UpdateVerticalMovement
-	         $2254 = UpdateVerticalMovement.movingUp
-	         $225d = UpdateVerticalMovement.applyGravity
-	         $2264 = UpdateVerticalMovement.applyPosition
-	         $228b = MoveUp
-	         $2293 = MoveDown
-	         $22a1 = MoveLeft
-	         $22ae = MoveRight
-	         $22bd = MoveRight.MoveBackgroundRight
-	         $22c5 = MoveRight.MovePlayerRight
-	SECTION: $22c9-$241a ($0152 bytes) ["GameState"]
-	         $22c9 = StartScreen_State
-	         $22db = StartScreen_State.viewStartScreen
-	         $22f7 = StartScreen_State.viewCharacterSelectScreen
-	         $231b = StartScreen_State.characterSelectionSet
-	         $232b = StartScreen_State.setCharacter0
-	         $2331 = StartScreen_State.setCharacter1
-	         $2337 = StartScreen_State.viewMapSelectScreen
-	         $2338 = StartScreen_State.passToCorrectState
-	         $234e = StartScreen_State.incStartScreenSelection
-	         $2362 = StartScreen_State.decStartScreenSelection
-	         $2376 = StartScreen_State.changeArrowLocation
-	         $238e = StartScreen_State.setStartScreenLocation
-	         $2395 = StartScreen_State.setCharacterSelectLocation
-	         $239c = StartScreen_State.LoadArrowLoop
-	         $23a6 = StartScreen_State.startScreenArrowLocations
-	         $23ac = StartScreen_State.characterSelectArrowLocations
-	         $23b2 = StartScreen_State.setSelection
-	         $23b5 = StartScreen_State.setSelectionLoop
-	         $23bd = GoToStart_State
-	         $23d2 = GoToSelectCharacter_State
-	         $23e9 = GoToSelectMap_State
-	         $2400 = Playing_State
-	         $240f = GoToGame_State
-	EMPTY: $241b-$3fff ($1be5 bytes)
-	TOTAL EMPTY: $1cad bytes
+	         $2246 = UpdateVerticalMovement
+	         $2258 = UpdateVerticalMovement.movingUp
+	         $2261 = UpdateVerticalMovement.applyGravity
+	         $2268 = UpdateVerticalMovement.applyPosition
+	         $227f = UpdateVerticalMovement.positive
+	         $2283 = UpdateVerticalMovement.applyMovement
+	         $22af = MoveUp
+	         $22b7 = MoveDown
+	         $22c5 = MoveLeft
+	         $22d2 = MoveRight
+	         $22e1 = MoveRight.MoveBackgroundRight
+	         $22e9 = MoveRight.MovePlayerRight
+	SECTION: $22ed-$243e ($0152 bytes) ["GameState"]
+	         $22ed = StartScreen_State
+	         $22ff = StartScreen_State.viewStartScreen
+	         $231b = StartScreen_State.viewCharacterSelectScreen
+	         $233f = StartScreen_State.characterSelectionSet
+	         $234f = StartScreen_State.setCharacter0
+	         $2355 = StartScreen_State.setCharacter1
+	         $235b = StartScreen_State.viewMapSelectScreen
+	         $235c = StartScreen_State.passToCorrectState
+	         $2372 = StartScreen_State.incStartScreenSelection
+	         $2386 = StartScreen_State.decStartScreenSelection
+	         $239a = StartScreen_State.changeArrowLocation
+	         $23b2 = StartScreen_State.setStartScreenLocation
+	         $23b9 = StartScreen_State.setCharacterSelectLocation
+	         $23c0 = StartScreen_State.LoadArrowLoop
+	         $23ca = StartScreen_State.startScreenArrowLocations
+	         $23d0 = StartScreen_State.characterSelectArrowLocations
+	         $23d6 = StartScreen_State.setSelection
+	         $23d9 = StartScreen_State.setSelectionLoop
+	         $23e1 = GoToStart_State
+	         $23f6 = GoToSelectCharacter_State
+	         $240d = GoToSelectMap_State
+	         $2424 = Playing_State
+	         $2433 = GoToGame_State
+	EMPTY: $243f-$3fff ($1bc1 bytes)
+	TOTAL EMPTY: $1c89 bytes
 
 WRAM0 bank #0:
-	SECTION: $c000-$c019 ($001a bytes) ["Variables"]
+	SECTION: $c000-$c01a ($001b bytes) ["Variables"]
 	         $c000 = VariableExample
 	         $c001 = wFramesCounter
 	         $c002 = currentInput
@@ -148,10 +150,11 @@ WRAM0 bank #0:
 	         $c012 = jump_strength
 	         $c013 = gravity
 	         $c014 = playerVY
-	         $c015 = maxVel
-	         $c016 = currentPositionStartArrowX
-	         $c017 = currentPositionStartArrowY
-	         $c018 = startScreenState
-	         $c019 = startScreenMenuSelection
-	EMPTY: $c01a-$cfff ($0fe6 bytes)
-	TOTAL EMPTY: $0fe6 bytes
+	         $c015 = playerVYsub
+	         $c016 = maxVel
+	         $c017 = currentPositionStartArrowX
+	         $c018 = currentPositionStartArrowY
+	         $c019 = startScreenState
+	         $c01a = startScreenMenuSelection
+	EMPTY: $c01b-$cfff ($0fe5 bytes)
+	TOTAL EMPTY: $0fe5 bytes

@@ -71,6 +71,7 @@ hoppingHeight: ds 1
 jump_strength: ds 1
 gravity: ds 1
 playerVY: ds 1
+playerVYsub: ds 1
 maxVel: ds 1
 
 currentPositionStartArrowX: ds 1
