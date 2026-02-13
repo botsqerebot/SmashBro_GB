@@ -1,6 +1,6 @@
 SUMMARY:
-	ROM0: 8996 bytes used / 7388 free
-	WRAM0: 22 bytes used / 4074 free
+	ROM0: 9043 bytes used / 7341 free
+	WRAM0: 26 bytes used / 4070 free
 
 ROM0 bank #0:
 	SECTION: $0000 ($0000 bytes) ["GameCode"]
@@ -15,118 +15,118 @@ ROM0 bank #0:
 	         $001f = wizardDefence
 	         $002a = wizardIceBlast
 	EMPTY: $0038-$00ff ($00c8 bytes)
-	SECTION: $0100-$01e9 ($00ea bytes) ["Header"]
+	SECTION: $0100-$01f9 ($00fa bytes) ["Header"]
 	         $0150 = Entrypoint
-	         $019d = MainLoop
-	         $01c7 = MainLoop.waitVBlankEnd
-	         $01d2 = PrintA
-	         $01de = A_msg
-	         $01e4 = ResetCounter
-	SECTION: $01ea-$1589 ($13a0 bytes) ["HelloWorld"]
-	         $01ea = HelloWorldmap
-	         $042a = BattleArena
-	         $042a = HelloWorldmapEnd
-	         $082a = ChineseStadium
-	         $0c2a = CharacterSelectScreen
-	         $0e6a = StartScreenMap
-	         $10aa = MapSelectScreen
-	         $12ea = ChineseStadionTiles
-	         $139a = Letters
-	         $154a = First
-	SECTION: $158a-$1ae9 ($0560 bytes) ["HelloWorld_Tiles"]
-	         $158a = HelloWorld_Tiles
-	         $19ea = SelectArrow
-	         $19ea = HelloWorld_TilesEnd
-	         $1a0a = CharacterV2
-	         $1aaa = Wizard
-	SECTION: $1aea-$1ee9 ($0400 bytes) ["TileData"]
-	         $1aea = WorldTileMap
-	SECTION: $1eea-$2299 ($03b0 bytes) ["Input Buttons"]
-	         $1eea = InputButton
-	         $1efd = InputButton.onenibble
-	         $1f0b = InputButton.knownRet
-	         $1f0c = WaitVBlank
-	         $1f49 = WaitVBlank.loadStartStateSprites
-	         $1f5f = WaitVBlank.loadGameStateSprites
-	         $1f7f = selectArrowData
-	         $1f82 = SetupChosenMap
-	         $1f90 = LoadWorldMap
-	         $1fa9 = LoadBattleArena1
-	         $1fc2 = LoadChineseStadium
-	         $1fdb = SetupChosenStartScreen
-	         $1fe9 = LoadStartScreen
-	         $2002 = LoadCharacterSelectScreen
-	         $201b = CopyTiles
-	         $2025 = CopyTilemap
-	         $202f = loadPlayerSprites
-	         $2036 = loadCPUSprites
-	         $203d = SetupSpriteData
-	         $2043 = LoadSpriteLoop
-	         $2065 = flipSprites
-	         $206a = notFlipSprites
-	         $206d = ClearOAM
-	         $2074 = ClearOAMLoop
-	         $207a = MovingCharacterTypes
-	         $208c = MovingType
-	         $2098 = HoppingMovement
-	         $20d4 = FlyingMovement
-	         $2101 = ChangePlayerOAMY
-	         $2110 = ChangePlayerOAMX
-	         $211f = ChangePlayerOAMXAdv
-	         $2130 = MoveSpritesLeft
-	         $2155 = MoveSpritesRight
-	         $217a = flipLeftFacing
-	         $218c = flipRightFacing
-	         $219e = checkCollision
-	         $21a8 = getPlayerTileY
-	         $21ba = getPlayerTileX
-	         $21cc = getTileID
-	         $21e7 = GoLeft
-	         $21f6 = GoLeft.MovePlayerLeft
-	         $21fe = GoLeft.MoveBackgroundLeft
-	         $2206 = GoRight
-	         $2215 = GoRight.MovePlayerRight
-	         $221d = GoRight.MoveBackgroundRight
-	         $2225 = CharacterJump
-	         $2233 = ContinueCharacterJump
-	         $2242 = ReadyFallingDown
-	         $224b = CheckCollisionFallingDown
-	         $2254 = FallingDown
-	         $225c = MoveUp
-	         $2264 = MoveDown
-	         $2272 = MoveLeft
-	         $227f = MoveRight
-	         $228e = MoveRight.MoveBackgroundRight
-	         $2296 = MoveRight.MovePlayerRight
-	SECTION: $229a-$23eb ($0152 bytes) ["GameState"]
-	         $229a = StartScreen_State
-	         $22ac = StartScreen_State.viewStartScreen
-	         $22c8 = StartScreen_State.viewCharacterSelectScreen
-	         $22ec = StartScreen_State.characterSelectionSet
-	         $22fc = StartScreen_State.setCharacter0
-	         $2302 = StartScreen_State.setCharacter1
-	         $2308 = StartScreen_State.viewMapSelectScreen
-	         $2309 = StartScreen_State.passToCorrectState
-	         $231f = StartScreen_State.incStartScreenSelection
-	         $2333 = StartScreen_State.decStartScreenSelection
-	         $2347 = StartScreen_State.changeArrowLocation
-	         $235f = StartScreen_State.setStartScreenLocation
-	         $2366 = StartScreen_State.setCharacterSelectLocation
-	         $236d = StartScreen_State.LoadArrowLoop
-	         $2377 = StartScreen_State.startScreenArrowLocations
-	         $237d = StartScreen_State.characterSelectArrowLocations
-	         $2383 = StartScreen_State.setSelection
-	         $2386 = StartScreen_State.setSelectionLoop
-	         $238e = GoToStart_State
-	         $23a3 = GoToSelectCharacter_State
-	         $23ba = GoToSelectMap_State
-	         $23d1 = Playing_State
-	         $23e0 = GoToGame_State
-	EMPTY: $23ec-$3fff ($1c14 bytes)
-	TOTAL EMPTY: $1cdc bytes
+	         $01ad = MainLoop
+	         $01d7 = MainLoop.waitVBlankEnd
+	         $01e2 = PrintA
+	         $01ee = A_msg
+	         $01f4 = ResetCounter
+	SECTION: $01fa-$1599 ($13a0 bytes) ["HelloWorld"]
+	         $01fa = HelloWorldmap
+	         $043a = BattleArena
+	         $043a = HelloWorldmapEnd
+	         $083a = ChineseStadium
+	         $0c3a = CharacterSelectScreen
+	         $0e7a = StartScreenMap
+	         $10ba = MapSelectScreen
+	         $12fa = ChineseStadionTiles
+	         $13aa = Letters
+	         $155a = First
+	SECTION: $159a-$1af9 ($0560 bytes) ["HelloWorld_Tiles"]
+	         $159a = HelloWorld_Tiles
+	         $19fa = SelectArrow
+	         $19fa = HelloWorld_TilesEnd
+	         $1a1a = CharacterV2
+	         $1aba = Wizard
+	SECTION: $1afa-$1ef9 ($0400 bytes) ["TileData"]
+	         $1afa = WorldTileMap
+	SECTION: $1efa-$22c8 ($03cf bytes) ["Input Buttons"]
+	         $1efa = InputButton
+	         $1f0d = InputButton.onenibble
+	         $1f1b = InputButton.knownRet
+	         $1f1c = WaitVBlank
+	         $1f59 = WaitVBlank.loadStartStateSprites
+	         $1f6f = WaitVBlank.loadGameStateSprites
+	         $1f8f = selectArrowData
+	         $1f92 = SetupChosenMap
+	         $1fa0 = LoadWorldMap
+	         $1fb9 = LoadBattleArena1
+	         $1fd2 = LoadChineseStadium
+	         $1feb = SetupChosenStartScreen
+	         $1ff9 = LoadStartScreen
+	         $2012 = LoadCharacterSelectScreen
+	         $202b = CopyTiles
+	         $2035 = CopyTilemap
+	         $203f = loadPlayerSprites
+	         $2046 = loadCPUSprites
+	         $204d = SetupSpriteData
+	         $2053 = LoadSpriteLoop
+	         $2075 = flipSprites
+	         $207a = notFlipSprites
+	         $207d = ClearOAM
+	         $2084 = ClearOAMLoop
+	         $208a = MovingCharacterTypes
+	         $209c = MovingType
+	         $20a8 = HoppingMovement
+	         $20d7 = FlyingMovement
+	         $2104 = ChangePlayerOAMY
+	         $2113 = ChangePlayerOAMX
+	         $2122 = ChangePlayerOAMXAdv
+	         $2133 = MoveSpritesLeft
+	         $2158 = MoveSpritesRight
+	         $217d = flipLeftFacing
+	         $218f = flipRightFacing
+	         $21a1 = checkCollision
+	         $21ab = getPlayerTileY
+	         $21bd = getPlayerTileX
+	         $21cf = getTileID
+	         $21ea = GoLeft
+	         $21f9 = GoLeft.MovePlayerLeft
+	         $2201 = GoLeft.MoveBackgroundLeft
+	         $2209 = GoRight
+	         $2218 = GoRight.MovePlayerRight
+	         $2220 = GoRight.MoveBackgroundRight
+	         $2228 = StartJump
+	         $2242 = UpdateVerticalMovement
+	         $2254 = UpdateVerticalMovement.movingUp
+	         $225d = UpdateVerticalMovement.applyGravity
+	         $2264 = UpdateVerticalMovement.applyPosition
+	         $228b = MoveUp
+	         $2293 = MoveDown
+	         $22a1 = MoveLeft
+	         $22ae = MoveRight
+	         $22bd = MoveRight.MoveBackgroundRight
+	         $22c5 = MoveRight.MovePlayerRight
+	SECTION: $22c9-$241a ($0152 bytes) ["GameState"]
+	         $22c9 = StartScreen_State
+	         $22db = StartScreen_State.viewStartScreen
+	         $22f7 = StartScreen_State.viewCharacterSelectScreen
+	         $231b = StartScreen_State.characterSelectionSet
+	         $232b = StartScreen_State.setCharacter0
+	         $2331 = StartScreen_State.setCharacter1
+	         $2337 = StartScreen_State.viewMapSelectScreen
+	         $2338 = StartScreen_State.passToCorrectState
+	         $234e = StartScreen_State.incStartScreenSelection
+	         $2362 = StartScreen_State.decStartScreenSelection
+	         $2376 = StartScreen_State.changeArrowLocation
+	         $238e = StartScreen_State.setStartScreenLocation
+	         $2395 = StartScreen_State.setCharacterSelectLocation
+	         $239c = StartScreen_State.LoadArrowLoop
+	         $23a6 = StartScreen_State.startScreenArrowLocations
+	         $23ac = StartScreen_State.characterSelectArrowLocations
+	         $23b2 = StartScreen_State.setSelection
+	         $23b5 = StartScreen_State.setSelectionLoop
+	         $23bd = GoToStart_State
+	         $23d2 = GoToSelectCharacter_State
+	         $23e9 = GoToSelectMap_State
+	         $2400 = Playing_State
+	         $240f = GoToGame_State
+	EMPTY: $241b-$3fff ($1be5 bytes)
+	TOTAL EMPTY: $1cad bytes
 
 WRAM0 bank #0:
-	SECTION: $c000-$c015 ($0016 bytes) ["Variables"]
+	SECTION: $c000-$c019 ($001a bytes) ["Variables"]
 	         $c000 = VariableExample
 	         $c001 = wFramesCounter
 	         $c002 = currentInput
@@ -145,9 +145,13 @@ WRAM0 bank #0:
 	         $c00f = currentlyJumping
 	         $c010 = pixelsLeftHopping
 	         $c011 = hoppingHeight
-	         $c012 = currentPositionStartArrowX
-	         $c013 = currentPositionStartArrowY
-	         $c014 = startScreenState
-	         $c015 = startScreenMenuSelection
-	EMPTY: $c016-$cfff ($0fea bytes)
-	TOTAL EMPTY: $0fea bytes
+	         $c012 = jump_strength
+	         $c013 = gravity
+	         $c014 = playerVY
+	         $c015 = maxVel
+	         $c016 = currentPositionStartArrowX
+	         $c017 = currentPositionStartArrowY
+	         $c018 = startScreenState
+	         $c019 = startScreenMenuSelection
+	EMPTY: $c01a-$cfff ($0fe6 bytes)
+	TOTAL EMPTY: $0fe6 bytes

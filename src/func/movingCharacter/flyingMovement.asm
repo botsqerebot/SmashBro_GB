@@ -30,8 +30,8 @@ MoveRight:
 
     ld a, [playerX]
     cp 140
-    jr z, GoRight.MoveBackgroundRight
-    jr nz, GoRight.MovePlayerRight
+    jr z, MoveRight.MoveBackgroundRight
+    jr nz, MoveRight.MovePlayerRight
 
     ret
 

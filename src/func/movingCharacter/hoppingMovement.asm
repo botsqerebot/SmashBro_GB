@@ -46,43 +46,62 @@ GoRight:
     ret
 
 
-CharacterJump:
-    ;Set jump height to 70 pixels
-    ld a, [hoppingHeight]
-    ld [pixelsLeftHopping], a
-
-    ld a, [playerY]
-    dec a 
-    ld [playerY], a
-
-    ret
-
-
-ContinueCharacterJump:
-    ld a, [pixelsLeftHopping]
-    dec a
-    ld [pixelsLeftHopping], a
-
-    ld a, [playerY]
-    dec a
-    ld [playerY], a
-
-    ret
-
-ReadyFallingDown:
-    ld a, [pixelsLeftHopping]
-    cp 0
-    call z, CheckCollisionFallingDown
-    ret
-
-CheckCollisionFallingDown:
+StartJump:
     ld a, [currentTileStandingOn]
     cp NoWalkTiles
-    call nc, FallingDown
+    ret nc       ; Return if in air (currentTileStandingOn < NoWalkTiles)
+
+    debug_message "Jumping"
+    ld a, -10
+    ld [playerVY], a
     ret
 
-FallingDown:
-    ld a, [playerY]
+UpdateVerticalMovement:
+    ld a, [playerVY]
+
+    cp 128
+    jr nc, .movingUp
+
+    cp 4
+    jr c, .applyGravity
+    ld a, 4
+    ld [playerVY], a
+    jr .applyPosition
+
+.movingUp:
+    ld a, [playerVY]
     inc a
+    ld [playerVY], a
+    jr .applyPosition
+
+.applyGravity:
+    ld a, [playerVY]
+    inc a
+    ld [playerVY], a
+.applyPosition:
+    ld a, [playerVY]
+    ld b, a
+
+    ld a, [playerY]
+    add a, b
     ld [playerY], a
+    
+    ; Check if we're now on or below ground
+    call checkCollision
+
+    ld a, [currentTileStandingOn]
+    call PrintA
+
+    ld a, [currentTileStandingOn]
+    cp NoWalkTiles
+    ret nc       ; Return if still in air
+    
+    ; We hit ground - snap to ground level and stop falling
+    ld a, [playerY]
+    and $F8     ; Align to 8-pixel grid (clear lower 3 bits)
+    ld [playerY], a
+    xor a
+    ld [playerVY], a    ; Stop vertical movement
+    
     ret
+    

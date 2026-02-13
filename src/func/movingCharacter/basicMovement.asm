@@ -31,24 +31,16 @@ MovingType:
     ret
 
 HoppingMovement:
-    ;First check if the character is currently jumping
-    ld a, [pixelsLeftHopping]
-    cp 0
-    call nz, ContinueCharacterJump
-    
-    ;Checks if last input also was up
+     ;Checks if last input also was up
     ld a, [currentInput]
     and %01000000
     ld b, a
     ld a, [lastInput]
     and %01000000
     cp b
-    call nz, CharacterJump
-    call z, ReadyFallingDown
+    call nz, StartJump
 
-    ld a, [currentInput]
-    bit 7, a
-    ;call nz, MoveDown
+    call UpdateVerticalMovement
 
     ld a, [currentInput]
     bit 4, a
@@ -58,6 +50,8 @@ HoppingMovement:
     bit 5, a
     call nz, GoLeft
 
+
+    ;Set new coordinates for player
     ld a, [playerX]
     call ChangePlayerOAMXAdv
     
@@ -65,6 +59,11 @@ HoppingMovement:
     call ChangePlayerOAMY
 
     ret
+
+
+
+   
+
 
 FlyingMovement:
     ld a, [currentInput]

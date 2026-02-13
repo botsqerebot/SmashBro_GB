@@ -29,6 +29,8 @@ Entrypoint:
     ld [currentPositionStartArrowX], a
     ld [currentPositionStartArrowY], a
 
+    ld [playerVY], a
+
     ld a, 1
     ld [selectedBattleMap], a
     ld a, 4
@@ -37,6 +39,7 @@ Entrypoint:
 
     ld a, 1                         ;Selects the wizard as the playable character
     ld [playerSelectedCharacter], a
+    ld [gravity], a
 
     ;Init of the player
     ld a, 50
@@ -45,6 +48,15 @@ Entrypoint:
 
     ld a, 32
     ld [hoppingHeight], a
+
+    ld a, -8
+    ld [jump_strength], a
+
+    ld a, 6
+    ld [maxVel], a
+
+    
+
     
     call WaitVBlank
 
@@ -52,7 +64,7 @@ Entrypoint:
 MainLoop:
     ;Wait for vblank
     ld a, [rLY]
-    cp 144
+     cp 144
     jp c, MainLoop
 
     ld a, [wFramesCounter]

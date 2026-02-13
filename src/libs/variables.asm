@@ -68,6 +68,11 @@ pixelsLeftHopping: ds 1
 
 hoppingHeight: ds 1
 
+jump_strength: ds 1
+gravity: ds 1
+playerVY: ds 1
+maxVel: ds 1
+
 currentPositionStartArrowX: ds 1
 currentPositionStartArrowY: ds 1
 startScreenState: ds 1

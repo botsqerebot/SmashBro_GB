@@ -6,6 +6,7 @@ Playing_State:
     jp nz, GoToStart_State
 
     call MovingCharacterTypes
+    ;call UpdateVerticalMovement
 
 
     ret
